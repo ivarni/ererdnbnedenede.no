@@ -14,6 +14,9 @@ app.get('/dnbnedestatus', (req, res) => {
         if (response.statusCode !== 200) {
             return res.json({ up: false });
         }
+        if (body.includes('domeneshop.no')) {
+            return res.json({ up: false });
+        }
         return res.json({ up: true });
     })
 });
